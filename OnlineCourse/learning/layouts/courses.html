@@ -1,0 +1,21 @@
+{% extends 'common.html' %}
+{% load static %}
+ {% block content %}
+ <br />
+
+<h2>List of Courses</h2>
+<table>
+  <tr>
+    <th>Courses</th>
+    <th>Duration</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    {% for x in values %}
+    <td>{{ x.coursename }}</td>
+    <td>{{ x.duration }}</td>
+    <td>{{ x.price }}</td>
+    {% endfor %}
+  </tr>
+</table>
+{% endblock %}

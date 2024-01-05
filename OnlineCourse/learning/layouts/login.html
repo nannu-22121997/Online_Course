@@ -1,0 +1,22 @@
+{% extends 'common.html' %}
+ {% load static %}
+  {% block content %}
+   <br />
+   <form method="POST">
+  <h2>LOGIN</h2>
+  {% csrf_token %}
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required />
+  </div>
+  <br />
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required />
+  </div>
+  <br />
+  <div>
+    <button type="submit">Login</button>
+  </div>
+</form>
+{% endblock %}

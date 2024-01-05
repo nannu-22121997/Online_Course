@@ -1,0 +1,70 @@
+{% extends 'common.html' %} {% block content %} {% load static %}
+<br />
+<h2>Examination Result-2023</h2>
+{% if values %}
+<a href="\results">back</a>
+<div>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <td>Roll Number</td>
+      <td colspan="3" style="font-size: large">{{ values.rollnumber }}</td>
+    </tr>
+    <tr>
+      <td>Name of the student</td>
+      <td colspan="3">{{ values.studentname }}</td>
+    </tr>
+    <tr>
+      <td>S.no</td>
+      <td>Name of the subject</td>
+      <td>Marks</td>
+      <td>Result</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>C</td>
+      <td>{{ values.c }}</td>
+      <td>{% if values.passed_c %}Pass{% else %}Fail{% endif %}</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Python</td>
+      <td>{{ values.python }}</td>
+      <td>{% if values.passed_python %}Pass{% else %}Fail{% endif %}</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Java</td>
+      <td>{{ values.java }}</td>
+      <td>{% if values.passed_java %}Pass{% else %}Fail{% endif %}</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>React</td>
+      <td>{{ values.react }}</td>
+      <td>{% if values.passed_react %}Pass{% else %}Fail{% endif %}</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Django</td>
+      <td>{{ values.django }}</td>
+      <td>{% if values.passed_django %}Pass{% else %}Fail{% endif %}</td>
+    </tr>
+    <tr>
+      <td colspan="2">Total</td>
+      <td>{{ values.total }}</td>
+    </tr>
+  </table>
+</div>
+{% else %}
+<form action="/results">
+  <div>
+    <label>Roll Number:
+      <input type="text" name="rollno" />
+    </label>
+  </div>
+  <div>
+    <button type="submit">Get Marks</button>
+  </div>
+</form>
+
+{% endif %} {% endblock %}
